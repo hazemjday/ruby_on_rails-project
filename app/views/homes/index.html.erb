@@ -1,0 +1,23 @@
+<div class="bg-gray-700 min-h-screen p-5">
+  <div class="flex justify-end">
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700" %>
+  </div>
+  <h1 class="text-center text-5xl mb-5 underline text-white">Notre catalogue</h1>
+
+  <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
+    <% @homes.each do |home| %>
+      <a href="/homes/<%= home.id %>" class="block backdrop-blur-xl rounded-lg shadow-lg overflow-hidden transition-transform duration-200 ease-in-out transform hover:scale-105 touch-pan-zoom bg-gradient-to-b from-transparent to-black/50">
+        <div class="w-full h-48">
+          <img src="<%= asset_path(home.image) %>" alt="Image de <%= home.location %>" class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 text-center">
+          <h2 class="text-xl font-bold mb-2 text-white"><%= home.location %></h2>
+          <p class="text-blue-700">Taille : <%= home.size %></p>
+          <p class="text-blue-700">Prix/mois : <%= home.price %></p>
+        
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
+

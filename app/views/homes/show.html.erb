@@ -1,0 +1,71 @@
+<div class="relative h-screen">
+  <!-- Image de fond -->
+  <img src="<%= asset_path('front.jpg') %>" class="absolute inset-0 w-full h-full object-cover z-negative" alt="Background Image">
+  
+  <div class="flex justify-center items-center h-full">
+  
+    <!-- Contenu au-dessus de l'image de fond -->
+    <div class="relative z-10 flex flex-col lg:flex-row lg:gap-5 p-4 lg:p-8">
+    
+      <div class="lg:w-1/2">
+        <img src="<%= asset_path(@home.image) %>" class="w-full h-auto rounded-lg" alt="Image de la maison">
+      </div>
+      <div class="lg:w-1/2 text-gray-900 border border-black rounded-lg p-6 backdrop-blur-2xl bg-black bg-opacity-50">
+     
+        <div class="text-left space-y-4">
+          <h1 class="text-lg italic font-bold text-white"><b class="text-blue-700">Localisation:</b> <%= @home.location   %></h1>
+          <h1 class="text-lg italic font-bold text-white"><b class="text-blue-700">Description:</b> <%= @home.description %></h1>
+          <h1 class="text-lg italic font-bold text-white"><b class="text-blue-700">Taille:</b> <%= @home.size %></h1>
+          <h1 class="text-lg italic font-bold text-white"><b class="text-blue-700">Prix/mois:</b> <%= @home.price %></h1>
+        </div>
+        <!-- Commentaire + Description -->
+        <div class="mt-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div>
+              <%= form_with model: [@home, @home.comments.build] do |form| %>
+                <div class="space-y-4">
+                  <div class="space-y-1">
+                    <%= form.label :nom, class: "block text-sm font-medium text-white" %>
+                    <%= form.text_field :commenter, class: "block w-full border border-gray-300 bg-transparent rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 p-2 text-sm" %>
+                  </div>
+                  <div class="space-y-1">
+                    <%= form.label :numero, class: "block text-sm font-medium text-white" %>
+                    <%= form.text_field :phone, class: "block w-full border border-gray-300 bg-transparent rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 p-2 text-sm" %>
+                  </div>
+                  <div class="space-y-1">
+                    <%= form.label :message, class: "block text-sm font-medium text-white" %>
+                    <%= form.text_area :body, class: "block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring  bg-transparent focus:ring-blue-500 p-2 text-sm" %>
+                  </div>
+                  <div>
+                    <%= form.submit "Commenter", class: "bg-blue-500 text-white font-bold py-1 px-3 text-sm" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="max-h-60 overflow-y-auto">
+              <table class="w-full text-sm text-left text-gray-500 mt-5">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 color-transparent py-3 bg-blue-500">Commentaire</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @home.comments.each do |comment| %>
+                    <tr class="bg-blue-700 text-white border border-gray-100 ">
+                      <td class="px-6 py-4"><%= comment.commenter %> : <%= comment.body %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bouton retour -->
+    <div class="absolute bottom-4 left-4">
+      <%= button_to 'Retour >>', homes_path, method: :get, class: "bg-blue-500 text-white font-bold py-1 px-3 text-sm" %>
+    </div>
+  </div>
+</div>

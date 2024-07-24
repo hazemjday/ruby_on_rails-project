@@ -1,0 +1,48 @@
+<div class="bg-gray-700 min-h-screen ">
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+          
+          <th scope="col" class="px-6 py-3">
+             nom
+          </th>
+          <th scope="col" class="px-6 py-3">
+          commentaire
+          </th>
+          <th scope="col" class="px-6 py-3">
+           numero
+          </th>
+          <th scope="col" class="px-6 py-3">
+        action
+           </th>
+         
+      </tr>
+  </thead>
+  <tbody>
+    <% @home.comments.each do |comment| %>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+         
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= comment.commenter %>
+          </th>
+          <td class="px-6 py-4">
+              <%= comment.body %>
+          </td>
+          <td class="px-6 py-4">
+              <%= comment.phone %>
+          </td>
+         
+          <td class="px-6 py-4">
+             
+             
+             <%= button_to 'supprimer  Commentaire', [comment.home, comment],
+             method: :delete,
+             data: { confirm: "Are you sure?" } %>
+              </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>

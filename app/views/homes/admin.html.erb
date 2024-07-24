@@ -1,0 +1,71 @@
+
+
+<div class="bg-gray-700 min-h-screen ">
+    <div class="flex justify-end ">
+        <%= button_to "Logout ", destroy_user_session_path, method: :delete, class: "flex justify-end bg-red-500  text-white font-bold py-2 px-4 rounded hover:bg-red-700" %>
+        </div>
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 text-gray-400">
+        <tr>
+            
+            <th scope="col" class="px-6 py-3">
+               id
+            </th>
+            <th scope="col" class="px-6 py-3">
+             localisation
+            </th>
+            <th scope="col" class="px-6 py-3">
+               espace
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Prix
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @homes.each do |home| %>
+        <tr class="bg-white border-b bg-gray-800 border-gray-700 hover:bg-gray-50 hover:bg-gray-600">
+           
+            <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
+                <%= home.id %>
+            </th>
+            <td class="px-6 py-4 text-black">
+                <%= home.location %>
+            </td>
+            <td class="px-6 py-4 text-black">
+                <%= home.size %>
+            </td>
+            <td class="px-6 py-4 text-black">
+                <%= home.price %>
+            </td>
+            <td class="px-6 py-4">
+                <div class="flex space-x-2">
+                  <%= button_to "Mettre à jour", edit_home_path(home), method: :get, class:"hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" %>
+              
+                  <%= button_to "supprimer", home_path(home), method: :delete, data: { confirm: "Are you sure?" }, class:"hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" %>
+              
+                  <button class="hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full ">
+                    <a href="/home/adminshow/<%= home.id %>">
+                     commentaires
+                    </a>
+                  </button>
+                </div>
+              </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<div class="flex justify-center">
+<button class=" text-center p-t-5 mt-5  bg-blue-500  text-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    <a href="/homes/new">
+        ajouter une maison
+       </a>
+    </button>
+  
+</div>
+
+</div>
+</div>

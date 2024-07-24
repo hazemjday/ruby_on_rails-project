@@ -1,0 +1,37 @@
+<div class="bg-gray-700 min-h-screen ">
+<div class="flex items-center flex-col justify-center ">
+<h1 class="text-2xl font-bold mb-4 mt-5 text-white">Mise à jour</h1>
+<div class="p-8  bg-white">
+<%= form_with model: @home, local: true, class: "space-y-6" do |form| %>
+  <div class="mb-4">
+    <%= form.label :image, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :image, class: "shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :prix, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :price, class: "shadow appearance-none border rounded  py-2 px-3  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :localisation, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :location, class: "shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :description, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :description, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :taille, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :size, class: "shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div>
+    <%= form.submit "enregistrer", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

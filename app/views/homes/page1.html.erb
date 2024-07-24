@@ -1,0 +1,20 @@
+<div class="grid  grid-cols-2 h-screen  ">
+    <div class=" col-span-1   " > <img  class="h-screen" src="<%= asset_path('front.jpg') %>"></div>
+    <div class="col-span-1 flex-col bg-gray-700 flex items-center justify-center " >
+        <h1 class="text-blue-500  text-5xl text-center mt-16  italic font-bold">Holoc</h1>
+        <p class="text-center underline  text-white">        trouver la maison des réves</p>
+       <div class="text-center">
+        
+        <button class="p-t-5 mt-5  bg-blue-500 justify-center text-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          <a href="http://localhost:3000/users/sign_in">
+           visiter le site
+          </a>
+        </button>
+         
+          <%= button_to 'a propos ', about_path, method: :get, class:"p-t-5 mt-5  bg-blue-500 justify-center text-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+            </div>
+        
+           
+    </div>
+   
+    </div>
