@@ -18,5 +18,4 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:commenter, :body, :phone)
     end
 
-    
 end
